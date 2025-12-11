@@ -1,0 +1,145 @@
+"use client";
+
+import { NavMain } from "@/components/nav-main";
+import { NavUser } from "@/components/nav-user";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { IUserInfo } from "@/types/user.interface";
+import {
+  LayoutDashboard,
+  Map,
+  Plane,
+  Send,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  UserPlus,
+  Users,
+} from "lucide-react";
+import Link from "next/link";
+import * as React from "react";
+import { Logo } from "./shared/Logo";
+
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  authData: IUserInfo;
+}
+
+export function AppSidebar({ authData, ...props }: AppSidebarProps) {
+  const navMainItems = [];
+  const userRole = authData?.data?.user?.role;
+
+  // Admin Menu Based on Requirements
+  if (userRole === "ADMIN") {
+    navMainItems.push(
+      {
+        title: "Dashboard",
+        url: "/admin/dashboard",
+        icon: LayoutDashboard,
+      },
+      {
+        title: "Activity Logs",
+        url: "/admin/dashboard/manage-activity",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Manage Users",
+        url: "/admin/dashboard/manage-users",
+        icon: Users,
+      },
+      {
+        title: "Manage Trips",
+        url: "/admin/dashboard/manage-trips",
+        icon: Plane,
+      },
+      {
+        title: "Manage Reviews",
+        url: "/admin/dashboard/manage-reviews",
+        icon: Star,
+      }
+    );
+  }
+
+  // Traveler Menu Based on Requirements
+  if (userRole === "TRAVELER") {
+    navMainItems.push(
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: LayoutDashboard,
+      },
+      {
+        title: "Trip Matches",
+        url: "/dashboard/trip-matches",
+        icon: Sparkles,
+      },
+      {
+        title: "Explore Travelers",
+        url: "/dashboard/explore-travelers",
+        icon: Map,
+      },
+      {
+        title: "My Travel Plans",
+        url: "/dashboard/my-travel-plans",
+        icon: Plane,
+      },
+      {
+        title: "Requested Trips",
+        url: "/dashboard/requested-trips",
+        icon: Send,
+      },
+
+      {
+        title: "Buddy Requests",
+        url: "/dashboard/buddy-requests",
+        icon: UserPlus,
+      },
+      {
+        title: "My Reviews",
+        url: "/dashboard/my-reviews",
+        icon: Star,
+      }
+    );
+  }
+
+  const data = {
+    user: {
+      name: authData?.data?.name || "Traveler",
+      email: authData?.data?.email || "user@example.com",
+      avatar: authData?.data?.profileImage || "",
+      role: userRole,
+    },
+    navMain: navMainItems,
+  };
+
+  return (
+    <Sidebar collapsible="offcanvas" {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:!p-1.5 hover:bg-transparent"
+            >
+              <Link href="/">
+                <Logo variant="full" />
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
