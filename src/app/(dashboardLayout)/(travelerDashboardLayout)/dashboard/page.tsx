@@ -2,14 +2,12 @@ import BlurFade from "@/components/magicui/blur-fade";
 import DashboardStats from "@/components/modules/Traveler/Dashboard/DashboardStats";
 import UpcomingTripCard from "@/components/modules/Traveler/Dashboard/UpcomingTripCard";
 import { Button } from "@/components/ui/button";
-import { getUserInfo } from "@/services/auth/getUserInfo";
 import { getTravelerDashboardData } from "@/services/stats/stats.service";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const TravelerDashboardPage = async () => {
   const { data } = await getTravelerDashboardData();
-  const user = getUserInfo() || null;
   return (
     <div className="container mx-auto py-8 space-y-8">
       {/* 1. Welcome Section */}

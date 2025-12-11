@@ -1,4 +1,4 @@
-# GoPal — Travel Buddy & Meetup Platform
+# Travel Buddy & Meetup Platform
 
 A modern, responsive, and interactive frontend application for **Travel Buddy & Meetup Platform.** This application is designed to connect travelers, share travel plans, and find companions for upcoming trips. It offers a seamless user experience with features like finding travel partners, managing profiles, and premium subscriptions.
 
@@ -7,7 +7,7 @@ A modern, responsive, and interactive frontend application for **Travel Buddy & 
 ## Live Link
 
 ```
-https://go-pal.vercel.app/
+underprossing
 ```
 
 ## Features
@@ -62,18 +62,22 @@ https://go-pal.vercel.app/
 #### Follow these steps to set up the project locally.
 
 ```
-git clone https://github.com/MukitHossen7/GoPal-Client.git
+git clone https://github.com/Mahabub2030/Travel-Client
 ```
 
 ```
-cd GoPal-Client
+cd Travel-Client
 ```
 
 ```
+bun install
+or
 npm install
 ```
 
 ```
+bun run dev
+or
 npm run dev
 ```
 
@@ -82,7 +86,7 @@ Make sure you have a backend Url string set in your `.env` file:
 ```
 
 ```
-backend-url=http://localhost:5000/api/v1
+backend-url=http://localhost:7000/api/v1
 ACCESS_TOKEN_EXPIRATION = "1d"
 JWT_SECRET="your_jwt_secret"
 STRIPE_SECRET_KEY="your_stripe_secret_key"
@@ -120,7 +124,7 @@ neo-pay   /
 
 ## Author
 
-- Developed by **Mukit Hossen**
+- Developed by **Mahaub_ALam**
 - **FullStack Developer**
 
 ## Dependencies
@@ -181,4 +185,5 @@ neo-pay   /
 - "tailwindcss": "^4",
 - "tw-animate-css": "^1.4.0",
 - "typescript": "^5"
+
 # Travel-Client
