@@ -12,6 +12,7 @@ const HomePage = async () => {
       {/* 1. Hero Section with Banner & Search */}
       <HeroSection />
 
+      {/* <SidevarDestinations /> */}
       {/* 2. Stats / Trust Badges (UPDATED: Professional & Animated) */}
       <StatsSection />
 
