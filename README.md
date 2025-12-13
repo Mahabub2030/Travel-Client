@@ -86,7 +86,7 @@ Make sure you have a backend Url string set in your `.env` file:
 ```
 
 ```
-backend-url=http://localhost:7000/api/v1
+backend-url=https://travel-buddy-and-meetup-server.vercel.app/api/v1
 ACCESS_TOKEN_EXPIRATION = "1d"
 JWT_SECRET="your_jwt_secret"
 STRIPE_SECRET_KEY="your_stripe_secret_key"

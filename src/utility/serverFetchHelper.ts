@@ -1,7 +1,8 @@
 import { getCookies } from "@/services/auth/tokenHandler";
 
 const BACKEND_API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000/api/v1";
+  process.env.NEXT_PUBLIC_API_URL ||
+  "https://travel-buddy-and-meetup-server.vercel.app/api/v1";
 
 const serverFetchHelper = async (
   url: string,
