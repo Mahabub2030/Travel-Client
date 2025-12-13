@@ -143,7 +143,7 @@ const PublicFooter = () => {
                 <MapPin size={18} className="mt-0.5 text-primary" />
                 <span>
                   Level-4, 34, Awal Centre, <br />
-                  Banani, Dhaka - 1213
+                  Badda, Dhaka - 1213
                 </span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
