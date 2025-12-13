@@ -2,6 +2,7 @@ import LoginFormComponent from "@/components/modules/Authentication/LoginFormCom
 import { Metadata } from "next";
 import Image from "next/image";
 
+import loginImg from "../../../../public/login.jpg";
 export const metadata: Metadata = {
   title: "Login - Travel Buddy Finder",
   description: "Login to find your travel buddy",
@@ -19,7 +20,7 @@ export default async function LoginPage({
       <div className="hidden lg:flex w-1/2 relative bg-gray-900 text-white flex-col justify-between p-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop"
+            src={loginImg}
             alt="Travel Friends Meetup"
             fill
             className="object-cover opacity-60"
@@ -43,7 +44,7 @@ export default async function LoginPage({
               see where your friends are heading next.&rdquo;
             </p>
             <footer className="text-sm font-semibold text-gray-300">
-              — Rumi (Adapted)
+              — Mahabub (Adapted)
             </footer>
           </blockquote>
         </div>

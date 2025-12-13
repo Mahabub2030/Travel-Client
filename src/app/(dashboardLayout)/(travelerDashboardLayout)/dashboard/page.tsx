@@ -2,12 +2,14 @@ import BlurFade from "@/components/magicui/blur-fade";
 import DashboardStats from "@/components/modules/Traveler/Dashboard/DashboardStats";
 import UpcomingTripCard from "@/components/modules/Traveler/Dashboard/UpcomingTripCard";
 import { Button } from "@/components/ui/button";
-import { getTravelerDashboardData } from "@/services/stats/stats.service";
+import { getUserInfo } from "@/services/auth/getUserInfo";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const TravelerDashboardPage = async () => {
-  const { data } = await getTravelerDashboardData();
+  // const { data } = await getTravelerDashboardData();
+  const { users } = await getUserInfo();
+  console.log(users);
   return (
     <div className="container mx-auto py-8 space-y-8">
       {/* 1. Welcome Section */}
@@ -15,7 +17,7 @@ const TravelerDashboardPage = async () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">
-              Welcome back, {data?.user?.name.split(" ")[0]}! 👋
+              Welcome back, {users?.user?.name.split(" ")[0]}! 👋
             </h1>
             <p className="text-muted-foreground mt-1">
               Here&apos;s what&apos;s happening with your travel plans today.
@@ -33,7 +35,7 @@ const TravelerDashboardPage = async () => {
       <BlurFade delay={0.2} inView>
         <DashboardStats
           stats={
-            data?.stats ?? { totalTrips: 0, completedTrips: 0, savedTrips: 0 }
+            users?.stats ?? { totalTrips: 0, completedTrips: 0, savedTrips: 0 }
           }
         />
       </BlurFade>
@@ -56,7 +58,7 @@ const TravelerDashboardPage = async () => {
                   View all
                 </Link>
               </div>
-              <UpcomingTripCard trip={data?.upcomingTrip} />
+              <UpcomingTripCard trip={users?.upcomingTrip} />
             </div>
           </BlurFade>
 
@@ -84,7 +86,7 @@ const TravelerDashboardPage = async () => {
         {/* Right Column (1/3) - Sidebar */}
         <div className="lg:col-span-1">
           <BlurFade delay={0.5} inView>
-            <p>{data?.user?.isVerified ? "Verified" : "Not Verified"}</p>
+            <p>{users?.user?.isVerified ? "Verified" : "Not Verified"}</p>
           </BlurFade>
         </div>
       </div>

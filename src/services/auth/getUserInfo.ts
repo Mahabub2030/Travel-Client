@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
-import { serverFetch } from "@/utility/serverFetchHelper";
-import { getCookies } from "./tokenHandler";
-import jwt, { JwtPayload } from "jsonwebtoken";
 import { IUserInfo } from "@/types/user.interface";
+import { serverFetch } from "@/utility/serverFetchHelper";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { revalidateTag } from "next/cache";
+import { getCookies } from "./tokenHandler";
 
 export const getUserInfo = async () => {
   let userInfo: IUserInfo | any;
@@ -41,6 +41,7 @@ export const getUserInfo = async () => {
     };
   }
 };
+console.log("user info from auth", getUserInfo);
 
 // === Update User Profile Action ===
 

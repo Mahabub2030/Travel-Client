@@ -1,10 +1,10 @@
 import RegisterForm from "@/components/modules/Authentication/RegisterFormComponent";
 import { Metadata } from "next";
 import Image from "next/image";
-
+import regImg from "../.../../../../../public/reg.jpg";
 export const metadata: Metadata = {
   title: "Register - Travel Buddy Finder",
-  description: "Join the best community of travelers.",
+  description: "Jim the best community of travelers.",
 };
 
 export default function RegisterPage() {
@@ -15,7 +15,7 @@ export default function RegisterPage() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop"
+            src={regImg}
             alt="Travel Adventure"
             fill
             className="object-cover opacity-60"
@@ -26,18 +26,21 @@ export default function RegisterPage() {
 
         {/* Content over image */}
         <div className="relative z-10">
-          <h3 className="text-xl font-bold tracking-wide">Travel Buddy Finder</h3>
+          <h3 className="text-xl font-bold tracking-wide">
+            Travel Buddy Finder
+          </h3>
         </div>
 
         <div className="relative z-10 max-w-lg">
           <blockquote className="space-y-2">
             <p className="text-lg font-medium leading-relaxed">
-              &ldquo;I found my best travel buddies through Travel Buddy Finder. We explored
-              the mountains of Nepal together, and it was an experience of a
-              lifetime. Highly recommended for solo travelers!&rdquo;
+              &ldquo;I found my best travel buddies through Travel Buddy Finder.
+              We explored the mountains of Nepal together, and it was an
+              experience of a lifetime. Highly recommended for solo
+              travelers!&rdquo;
             </p>
             <footer className="text-sm font-semibold text-gray-300">
-              —  Solo Traveler
+              — Mahabub (Adapted)
             </footer>
           </blockquote>
         </div>

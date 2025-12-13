@@ -78,7 +78,7 @@ const RegisterForm = () => {
             <Input
               id="name"
               name="name"
-              placeholder="John Doe"
+              placeholder="Jim Doe"
               className="pl-9 bg-background/50"
             />
           </div>
@@ -98,7 +98,7 @@ const RegisterForm = () => {
               id="email"
               name="email"
               type="email"
-              placeholder="john@gopal.com"
+              placeholder="jim@gopal.com"
               className="pl-9 bg-background/50"
             />
           </div>

@@ -43,6 +43,7 @@ export const registerTraveler = async (
     const res = await serverFetch.post("/users/register", {
       headers: {
         "Content-Type": "application/json",
+        credentials: "include",
       },
       body: JSON.stringify(newPayload),
     });
