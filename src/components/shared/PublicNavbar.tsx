@@ -9,6 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./Logo";
+import { ModeToggle } from "./ModeToggle";
 
 const PublicNavbar = ({
   accessToken,
@@ -87,8 +88,7 @@ const PublicNavbar = ({
                     <div className="relative h-9 w-9 overflow-hidden rounded-full border border-primary/20 ring-2 ring-transparent hover:ring-primary/20 transition-all">
                       <Image
                         src={
-                          authData?.data?.profileImage ||
-                          "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&auto=format&fit=crop"
+                          authData?.data?.profileImage || "/default-avatar.png"
                         }
                         alt="User"
                         fill
@@ -141,7 +141,7 @@ const PublicNavbar = ({
                         <div className="border-t my-1"></div>
                         <button
                           onClick={handleLogout}
-                          className="flex w-full items-center gap-2 rounded-md p-2 text-sm text-destructive hover:bg-destructive/10 transition-colors"
+                          className="flex w-full items-center gap-2 rounded-md p-2 text-sm text-destructive hover:bg-destructive/10 transition-colors cursor-pointer"
                         >
                           <LogOut className="h-4 w-4" /> Logout
                         </button>
@@ -152,7 +152,7 @@ const PublicNavbar = ({
               </>
             ) : (
               // Logged Out State
-              <div className="flex gap-2">
+              <div className="flex gap-2 cursor-pointer">
                 <Link href="/login">
                   <Button variant="ghost">Log in</Button>
                 </Link>
@@ -172,8 +172,8 @@ const PublicNavbar = ({
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
+          <ModeToggle />
         </div>
-
         {/* 5. Mobile Navigation Menu */}
         {menuOpen && (
           <div className="md:hidden py-3 border-t  animate-in slide-in-from-top-5">
@@ -232,7 +232,7 @@ const PublicNavbar = ({
                   </button>
                 </>
               ) : (
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 ">
                   <Link href="/login" onClick={() => setMenuOpen(false)}>
                     <Button variant="outline" className="w-full">
                       Log in

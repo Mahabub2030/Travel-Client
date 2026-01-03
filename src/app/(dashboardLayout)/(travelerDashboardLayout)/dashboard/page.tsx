@@ -2,13 +2,13 @@ import BlurFade from "@/components/magicui/blur-fade";
 import DashboardStats from "@/components/modules/Traveler/Dashboard/DashboardStats";
 import UpcomingTripCard from "@/components/modules/Traveler/Dashboard/UpcomingTripCard";
 import { Button } from "@/components/ui/button";
-import { getUserInfo } from "@/services/auth/getUserInfo";
+import { getTravelerDashboardData } from "@/services/stats/stats.service";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const TravelerDashboardPage = async () => {
   // const { data } = await getTravelerDashboardData();
-  const { users } = await getUserInfo();
+  const { users } = await getTravelerDashboardData();
   console.log(users);
   return (
     <div className="container mx-auto py-8 space-y-8">
@@ -17,7 +17,7 @@ const TravelerDashboardPage = async () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">
-              Welcome back, {users?.user?.name.split(" ")[0]}! 👋
+              Welcome back, {users?.user?.email.split(" ")[0]}! 👋
             </h1>
             <p className="text-muted-foreground mt-1">
               Here&apos;s what&apos;s happening with your travel plans today.

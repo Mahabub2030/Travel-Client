@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsUpDown, LogOut, User, LockKeyhole } from "lucide-react";
+import { ChevronsUpDown, LockKeyhole, LogOut, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -18,9 +18,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
-import { UserRole } from "@/utility/auth-utils";
 import { logoutUser } from "@/services/auth/logoutUser";
+import { UserRole } from "@/utility/auth-utils";
+import Link from "next/link";
 
 export function NavUser({
   user,
@@ -28,7 +28,7 @@ export function NavUser({
   user: {
     name: string;
     email: string;
-    avatar: string;
+    profileImage: string;
     role: UserRole;
   };
 }) {
@@ -49,7 +49,7 @@ export function NavUser({
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={user?.avatar}
+                  src={user?.profileImage}
                   alt={user?.name}
                   className="object-cover"
                 />
@@ -75,7 +75,7 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user?.avatar} alt={user?.name} />
+                  <AvatarImage src={user.profileImage} alt={user?.name} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">

@@ -105,7 +105,7 @@ export default async function AdminDashboard() {
         {statCards.map((stat, idx) => (
           <BlurFade key={stat.title} delay={0.1 * idx} inView>
             <Card
-              className={`overflow-hidden border-l-4 ${stat.border} shadow-sm hover:shadow-md transition-shadow`}
+              className={`overflow-hidden border-l-4 ${stat?.border} shadow-sm hover:shadow-md transition-shadow`}
             >
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">

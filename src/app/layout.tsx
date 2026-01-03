@@ -1,6 +1,7 @@
 import LoginSuccessToast from "@/components/shared/LoginSuccessToast";
 import LogoutSuccessToast from "@/components/shared/LogoutSuccessToast";
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
@@ -31,12 +32,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Toaster position="top-right" richColors />
-        <Suspense fallback={null}>
-          <LoginSuccessToast />
-          <LogoutSuccessToast />
-        </Suspense>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster position="top-right" richColors />
+          <Suspense fallback={null}>
+            <LoginSuccessToast />
+            <LogoutSuccessToast />
+          </Suspense>
+        </ThemeProvider>
       </body>
     </html>
   );

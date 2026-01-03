@@ -58,6 +58,7 @@ export default async function LoginPage({
         {/* The Login Form Component */}
         <div className="w-full max-w-md">
           <LoginFormComponent redirect={params.redirect} />
+          <p>Login with google</p>
         </div>
       </div>
     </div>

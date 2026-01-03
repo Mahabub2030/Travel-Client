@@ -7,7 +7,7 @@ A modern, responsive, and interactive frontend application for **Travel Buddy & 
 ## Live Link
 
 ```
-underprossing
+https://travel-buddy-and-meetup-client.vercel.app/
 ```
 
 ## Features
